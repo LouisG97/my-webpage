@@ -50,6 +50,7 @@ header p {
 
 main {
     padding: 2em;
+    padding-top: 5em; /* Ajusta para evitar que el contenido se solape con el header */
 }
 
 section {
@@ -72,25 +73,12 @@ h2 {
 
 .portfolio-item, .gallery-item {
     margin: 1em;
-    flex: 1 1 calc(33.333% - 2em); /* Adjust for a 3-column layout */
+    flex: 1 1 calc(33.333% - 2em); /* Ajusta para un layout de 3 columnas */
     box-sizing: border-box;
 }
 
 .portfolio-item img, .gallery-item img {
     max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.swiper-container {
-    width: 100%;
-    height: 400px; /* Ajusta según sea necesario */
-    margin-top: 1em;
-}
-
-.swiper-slide img {
-    width: 100%;
     height: auto;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -122,7 +110,7 @@ footer p {
 
 @media (max-width: 768px) {
     .portfolio-item, .gallery-item {
-        flex: 1 1 calc(50% - 2em); /* Adjust for a 2-column layout */
+        flex: 1 1 calc(50% - 2em); /* Ajusta para un layout de 2 columnas */
     }
 }
 
@@ -133,7 +121,7 @@ footer p {
     }
 
     .portfolio-item, .gallery-item {
-        flex: 1 1 100%; /* Adjust for a single column layout */
+        flex: 1 1 100%; /* Ajusta para un layout de 1 columna */
         margin: 1em 0;
     }
 
@@ -141,4 +129,17 @@ footer p {
         display: block;
         margin: 0.5em 0;
     }
+}
+
+.swiper-container {
+    width: 100%;
+    height: 400px; /* Ajusta según sea necesario */
+    margin-top: 1em;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

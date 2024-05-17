@@ -10,21 +10,6 @@ document.querySelectorAll('header nav ul li a').forEach(anchor => {
     });
 });
 
-// Lightbox effect for gallery
-document.querySelectorAll('.gallery-item img').forEach(image => {
-    image.addEventListener('click', () => {
-        const lightbox = document.createElement('div');
-        lightbox.id = 'lightbox';
-        document.body.appendChild(lightbox);
-        const img = document.createElement('img');
-        img.src = image.src;
-        lightbox.appendChild(img);
-        lightbox.addEventListener('click', () => {
-            lightbox.remove();
-        });
-    });
-});
-
 // Hide/show header on scroll
 let lastScrollTop = 0;
 const header = document.querySelector('header');
