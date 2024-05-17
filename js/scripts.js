@@ -4,7 +4,6 @@
 document.querySelectorAll('header nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
@@ -17,13 +16,34 @@ document.querySelectorAll('.gallery-item img').forEach(image => {
         const lightbox = document.createElement('div');
         lightbox.id = 'lightbox';
         document.body.appendChild(lightbox);
-
         const img = document.createElement('img');
         img.src = image.src;
         lightbox.appendChild(img);
-
         lightbox.addEventListener('click', () => {
             lightbox.remove();
         });
     });
+});
+
+// Hide/show header on scroll
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+        header.style.top = '-100px'; // Hide header
+    } else {
+        header.style.top = '0'; // Show header
+    }
+    lastScrollTop = scrollTop;
+});
+
+// Initialize Swiper
+const swiper = new Swiper('.swiper-container', {
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    loop: true,
 });
