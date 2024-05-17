@@ -22,6 +22,7 @@ header {
 header nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 header nav ul li {
@@ -50,6 +51,7 @@ main {
 
 section {
     margin: 2em 0;
+    padding: 0 1em;
 }
 
 h2 {
@@ -67,6 +69,8 @@ h2 {
 
 .portfolio-item, .gallery-item {
     margin: 1em;
+    flex: 1 1 calc(33.333% - 2em); /* Adjust for a 3-column layout */
+    box-sizing: border-box;
 }
 
 .portfolio-item img, .gallery-item img {
@@ -100,9 +104,21 @@ footer p {
     margin: 0;
 }
 
+@media (max-width: 768px) {
+    .portfolio-item, .gallery-item {
+        flex: 1 1 calc(50% - 2em); /* Adjust for a 2-column layout */
+    }
+}
+
 @media (max-width: 600px) {
     .portfolio-items, .gallery-items {
         flex-direction: column;
+        padding: 0;
+    }
+
+    .portfolio-item, .gallery-item {
+        flex: 1 1 100%; /* Adjust for a single column layout */
+        margin: 1em 0;
     }
 
     header nav ul li {
