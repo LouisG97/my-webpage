@@ -3,27 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre del Actor</title>
+    <title>José Luis Gómez - Actor</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>¡Hola! Soy José Luis Gómez Figueroa</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <h1>José Luis Gómez</h1>
+        <p>Actor Profesional</p>
     </header>
-    <section>
-        <h2>Sobre mí</h2>
-        <p>Una breve biografía sobre ti. Incluye detalles como tu formación, experiencia y tus trabajos destacados.</p>
-    </section>
-    <section>
-        <h2>Portafolio</h2>
-        <p>Galería de fotos y videos de tus actuaciones.</p>
-    </section>
-    <section>
-        <h2>Contacto</h2>
-        <p>Puedes contactarme a través de <a href="mailto:tucorreo@example.com">correo electrónico</a> o en mis redes sociales: 
-           <a href="https://twitter.com/tuusuario">Twitter</a>, 
-           <a href="https://instagram.com/tuusuario">Instagram</a>.
-        </p>
-    </section>
+
+    <main>
+        <section id="about">
+            <h2>Sobre mí</h2>
+            <p>Una breve biografía sobre ti. Incluye detalles como tu formación, experiencia y tus trabajos destacados.</p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portafolio</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <img src="img/project1.jpg" alt="Proyecto 1">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción del proyecto 1.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img/project2.jpg" alt="Proyecto 2">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción del proyecto 2.</p>
+                </div>
+                <!-- Agrega más elementos de portafolio según sea necesario -->
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Galería</h2>
+            <div class="gallery-items">
+                <div class="gallery-item">
+                    <img src="img/photo1.jpg" alt="Foto 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/photo2.jpg" alt="Foto 2">
+                </div>
+                <!-- Agrega más elementos de galería según sea necesario -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme a través de <a href="mailto:joseluis@example.com">correo electrónico</a> o en mis redes sociales:</p>
+            <div class="social-links">
+                <a href="https://twitter.com/tuusuario"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/tuusuario"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/tuusuario"><i class="fab fa-linkedin"></i></a>
+                <!-- Agrega más enlaces a redes sociales según sea necesario -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 José Luis Gómez. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
+
