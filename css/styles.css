@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background: #333;
+    background: #444;
     color: #fff;
     padding: 1em 0;
     position: fixed;
@@ -26,10 +26,11 @@ header nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 header nav ul li {
-    display: inline;
     margin: 0 1em;
 }
 
@@ -59,8 +60,8 @@ section {
 }
 
 h2 {
-    color: #333;
-    border-bottom: 2px solid #333;
+    color: #444;
+    border-bottom: 2px solid #444;
     display: inline-block;
     margin-bottom: 1em;
 }
@@ -85,7 +86,7 @@ h2 {
 }
 
 .social-links a {
-    color: #333;
+    color: #444;
     margin: 0 0.5em;
     text-decoration: none;
     font-size: 1.5em;
@@ -96,7 +97,7 @@ h2 {
 }
 
 footer {
-    background: #333;
+    background: #444;
     color: #fff;
     padding: 1em 0;
     position: fixed;
@@ -125,6 +126,10 @@ footer p {
         margin: 1em 0;
     }
 
+    header nav ul {
+        flex-direction: column;
+    }
+
     header nav ul li {
         display: block;
         margin: 0.5em 0;
@@ -133,13 +138,25 @@ footer p {
 
 .swiper-container {
     width: 100%;
-    height: 400px; /* Ajusta según sea necesario */
+    height: 300px; /* Ajusta según sea necesario */
     margin-top: 1em;
 }
 
 .swiper-slide img {
     width: 100%;
     height: auto;
+    object-fit: cover; /* Ajusta el tamaño de la imagen para que se ajuste al contenedor */
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #444; /* Color de los botones de navegación */
+    right: 10px; /* Ajuste de la posición de los botones */
+    left: auto;
+}
+
+.swiper-button-prev {
+    left: 10px;
+    right: auto;
 }
