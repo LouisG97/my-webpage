@@ -11,7 +11,7 @@ body {
 header {
     background: #000;
     color: #fff;
-    padding: 1em 0;
+    padding: 0.5em 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -20,10 +20,7 @@ header {
     transition: top 0.3s;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+header nav {
     display: flex;
     justify-content: center;
     background-color: #000;
@@ -32,18 +29,26 @@ header nav ul {
     z-index: 1001;
 }
 
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
 header nav ul li {
-    margin: 0 1em;
+    margin: 0 0.2em; /* Reducir el espacio entre elementos del menú */
 }
 
 header nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    padding: 0.2em 0.5em;
 }
 
 .header-content {
-    margin-top: 2em;
+    margin-top: 0.2em; /* Reducir el espacio superior */
     text-align: center;
 }
 
@@ -54,17 +59,17 @@ header h1 {
 
 header p {
     font-style: italic;
-    margin: 0.5em 0;
+    margin: 0.2em 0;
 }
 
 main {
-    padding: 2em 0;
-    padding-top: 7em;
+    padding: 1em 0;
+    padding-top: 10em;
 }
 
 .section {
     margin: 2em 0;
-    padding: 1em 0;
+    padding: 2em 0;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,7 +109,7 @@ h2 {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .social-links a {
@@ -150,30 +155,49 @@ footer p {
     }
 
     header nav ul {
-        flex-direction: column;
+        flex-direction: row; /* Ajuste para mostrar los elementos del menú en línea */
+        justify-content: center; /* Centrar los elementos del menú */
     }
 
     header nav ul li {
-        display: block;
-        margin: 0.5em 0;
+        margin: 0 0.5em;
     }
+}
+
+.resize {
+
+    max-width: min-content;
+
 }
 
 .swiper-container {
     width: 100%;
-    height: 70vh; /* Ajuste en la altura de la galería */
-    margin-top: 2em;
+     /* Ajuste en la altura de la galería */
+     height: 70vh;
+     margin-top: 2em;
 }
 
 .swiper-slide img {
     width: 100%;
-    height: 100%;
+    height: auto; /* Cambiar a auto para mantener la proporción */
+    max-height: 400px; /* Limitar la altura máxima */
     object-fit: cover;
-    border-radius: 10px; /* Aumento en el radio de borde */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .swiper-button-next, .swiper-button-prev {
-    color: #fff; /* Cambio en el color de los botones de navegación */
-    font-size: 1.5em; /* Ajuste en el tamaño de los botones de navegación */
+    color: #444;
+    font-size: 1.5em;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
 }
