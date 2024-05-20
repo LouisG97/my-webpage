@@ -14,8 +14,9 @@ const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-        header.style.top = '-100px'; // Hide header
+    const headerHeight = header.offsetHeight;
+    if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+        header.style.top = `-${headerHeight}px`; // Hide header
     } else {
         header.style.top = '0'; // Show header
     }
