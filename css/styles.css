@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -38,6 +38,10 @@ header nav ul li a {
     font-weight: bold;
 }
 
+.header-content {
+    margin-top: 1em;
+}
+
 header h1 {
     margin: 0.5em 0;
 }
@@ -48,13 +52,17 @@ header p {
 }
 
 main {
-    padding: 2em;
+    padding: 2em 0;
     padding-top: 6em;
 }
 
-section {
+.section {
     margin: 2em 0;
-    padding: 0 1em;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
 }
 
 h2 {
@@ -64,19 +72,19 @@ h2 {
     margin-bottom: 1em;
 }
 
-.portfolio-items, .gallery-items {
+.portfolio-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.portfolio-item, .gallery-item {
+.portfolio-item {
     margin: 1em;
     flex: 1 1 calc(33.333% - 2em);
     box-sizing: border-box;
 }
 
-.portfolio-item img, .gallery-item img {
+.portfolio-item img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
@@ -108,18 +116,18 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .portfolio-item, .gallery-item {
+    .portfolio-item {
         flex: 1 1 calc(50% - 2em);
     }
 }
 
 @media (max-width: 600px) {
-    .portfolio-items, .gallery-items {
+    .portfolio-items {
         flex-direction: column;
         padding: 0;
     }
 
-    .portfolio-item, .gallery-item {
+    .portfolio-item {
         flex: 1 1 100%;
         margin: 1em 0;
     }

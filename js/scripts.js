@@ -1,5 +1,3 @@
-// scripts.js
-
 // Smooth scrolling for navigation links
 document.querySelectorAll('header nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
