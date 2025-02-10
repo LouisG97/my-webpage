@@ -1,35 +1,63 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('header nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start' // Ajuste para alinear el elemento al inicio de la ventana
-        });
-    });
-});
-
-// Hide/show header on scroll
-let lastScrollTop = 0;
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const headerHeight = header.offsetHeight;
-    if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-        header.style.top = `-${headerHeight}px`; // Ocultar encabezado
-    } else {
-        header.style.top = '0'; // Mostrar encabezado
+function navigateTo(section) {
+    // Navigate to different sections based on the image clicked
+    switch (section) {
+        case 'pareja':
+            window.location.href = '#pareja';
+            break;
+        case 'embarazo':
+            window.location.href = '#embarazo';
+            break;
+        case 'bebe':
+            window.location.href = '#bebe';
+            break;
     }
-    lastScrollTop = scrollTop;
-});
+}
 
-// Inicializar Swiper
-const swiper = new Swiper('.swiper-container', {
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    loop: true,
+function sendToWhatsapp(){
+    let number = "+523315473853";
+
+    let mensaje = "Hola, te escribo para agendar una cita, abajo te dejo mis datos: \n";
+    let paquete = document.getElementById('paquete-seleccionado').value;
+    let nombre = document.getElementById('nombre').value;
+    let telefono = document.getElementById('telefono').value;
+    let fecha = document.getElementById('fecha').value;
+    let codigo = document.getElementById('codigo-descuento').value;
+
+    var url = "https://wa.me/"+number+"?text="
+    + mensaje+"%0a"
+    +"Paquete seleccionado: "+paquete+"%0a"
+    +"Nombre: "+nombre+"%0a"
+    +"Teléfono: "+telefono+"%0a"
+    +"Fecha: "+fecha+"%0a"
+    +"Código de descuento: "+codigo+"%0a%0a";
+
+    window.open(url, '_blank').focus();
+}
+
+function sendToWhatsapp2(){
+    let number = "+523315473853";
+
+    let mensaje = "Hola, te escribo desde tu pagina web! \n";
+
+    var url = "https://wa.me/"+number+"?text="
+    + mensaje+"%0a%0a";
+
+    window.open(url, '_blank').focus();
+}
+
+$(document).ready(function() {
+    $('#paquetes').hide();
+    $('#formulario-reserva').hide();
+
+    $('#reservar-cita').click(function() {
+        $('#paquetes').slideToggle();
+    });
+
+    $('.paquete').click(function() {
+        $('.paquete').removeClass('seleccionado');
+        $(this).addClass('seleccionado');
+        var paqueteSeleccionado = $(this).find('h3').text();
+        $('#paquete-seleccionado').val(paqueteSeleccionado);
+        $('#formulario-reserva').slideDown();
+    });        
 });
