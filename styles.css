@@ -103,7 +103,7 @@ main {
 .image-container {
     position: relative;
     max-width: 300px;
-    max-height: 450px;
+    max-height: 530px;
     justify-content: center;
     text-align: center;
     cursor: pointer;
