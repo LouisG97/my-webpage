@@ -100,6 +100,15 @@ main {
     flex-wrap: wrap;
 }
 
+.main-images2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
 .image-container {
     position: relative;
     max-width: 300px;
@@ -109,6 +118,16 @@ main {
     cursor: pointer;
     overflow: hidden;
 }
+.image-container2 {
+    position: relative;
+    max-width: 500px;
+    max-height: 500px;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
 
 .image-container img {
     width: 100%;
