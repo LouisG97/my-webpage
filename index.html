@@ -1,98 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ecos de Apolo</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    </head>
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="5">
-    <script>
-        AOS.init({
-            duration: 1000, // Duración de la animación en milisegundos
-            easing: 'ease-in-out', // Tipo de animación
-            once: true // Si solo quieres que la animación ocurra una vez
-        });
-    </script>
-    <header>
-        <img src="img/EcosDorado.png" alt="Ecos-Logo" class="logo"><a href="index.html"></a>
-    </header>
-    <nav class="navbar text-bg-color navbar-expand-sm sticky-top">
-        <div class="container-sm">
-            <a class="navbar-brand mx-auto ms-0" href="index.html"><img src="img/EcosBlanco.png" alt="Ecos-Logo" style="max-width: 70px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center me-4" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-link"><a href="#newborn-featured">Inicio</a></li>
-                    <li class="nav-link"><a href="#sobre-mi">Mision y Vision</a></li>
-                    <li class="nav-link"><a href="#main-images">Producciones</a></li>
-                    <li class="nav-link"><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>José Luis Gómez • Desarrollador Web</title>
+  <meta name="description" content="Desarrollador web — diseño, front-end, performance, e-commerce. Paquetes y contacto." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Accent color */
+    :root{--accent:#0ea5a4;--muted:#6b7280}
+    /* Typewriter */
+    .typewriter > .words{display:inline-block; border-right:2px solid rgba(0,0,0,0.15); padding-right:6px; margin-left:6px}
+    @keyframes floaty {0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    .floaty{animation:floaty 4s ease-in-out infinite}
+    /* Card subtle glass */
+    .glass{background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));backdrop-filter: blur(6px)}
+    /* reveal */
+    .reveal{opacity:0; transform:translateY(18px) scale(.995); transition:all .6s cubic-bezier(.2,.9,.25,1)}
+    .reveal.show{opacity:1; transform:translateY(0) scale(1)}
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <!-- NAV -->
+  <header class="fixed w-full z-40 bg-white/40 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center text-white font-semibold">TN</div>
+        <span class="text-sm font-medium">José Luis Gómez — Desarrollador Web</span>
+      </a>
+      <nav class="hidden md:flex gap-6 text-sm text-gray-700">
+        <a href="#about" class="hover:text-black">Sobre mí</a>
+        <a href="#paquetes" class="hover:text-black">Paquetes</a>
+        <a href="#portfolio" class="hover:text-black">Portfolio</a>
+        <a href="#contact" class="hover:text-black">Contacto</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="mailto:hello@tu-dominio.com" class="text-sm">gmzluiis@gmail.com</a>
+        <a href="https://wa.me/526442041328" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-gray-200 shadow-sm hover:shadow-md transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>
+          <span class="text-xs">Contactar</span>
+        </a>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
 
-    <main>
-        <section id="newborn-featured" data-aos="fade-up">
-            <img src="img/ecospeople.jpg" alt="Newborn" class="featured-image">
-        </section>
-        <section id="sobre-mi" data-aos="fade-right">
-            <h2>Ecos de Apolo</h2>
-            <p><b> Ecos de Apolo S.A.S. de C.V.</b> es una compañía de teatro musical fundada en Guadalajara, Jalico, con el propósito de transformar y enriquecer la escena teatral en la ciudad.
-                Nos especializamos en la producción de espectáculos innovadores y de alta calidad, apostando por la profesionalización del medio y la presentación de obras nunca antes vistas en México.
-                Además, buscamos generar nuevas oportunidades para jóvenes artistas locales, brindándoles un espacio donde puedan desarrollar su talento en un entorno profesional y comprometido con la excelencia artística.</p>
-            <p>Es por eso que hoy ofrecemos estos servicios para que tu también puedas recordar con amor y pureza cada uno de estos momentos.</p>
-        </section>
+  <main class="pt-24">
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm uppercase text-gray-500 tracking-wider mb-3">Desarrollador • Front-end • Experiencias</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            Construyo <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-emerald-500">experiencias web</span>
+            <span class="typewriter block mt-3 text-xl font-medium text-gray-600">que <span class="words">impactan</span></span>
+          </h1>
+          <p class="mt-6 text-gray-600 max-w-xl">Diseño interfaces limpias, desarrollo front-ends rápidos y creo productos escalables. Trabajo con clientes directos para llevar ideas desde el concepto hasta producción.</p>
 
-        <section id="sobre-mi" data-aos="fade-left">
-            <h2>Misión</h2>
-            <p>Producir y presentar espectáculos de teatro musical con los más altos estándares de calidad, explorando nuevas propuestas escénicas y narrativas.</p>
-            <p>Nos enfocamos en traer a México producciones innovadoras y en profesionalizar el medio teatral en Guadalajara, ofreciendo oportunidades de crecimiento y desarrollo a artistas y creativos locales.</p>
-        </section>
-
-        <section id="sobre-mi" data-aos="fade-left">
-            <h2>Visión</h2>
-            <p>Convertirnos en una de las compañías de teatro musical más influyentes de México, posicionando a Guadalajara como un referente en la escena teatral del país. </p>
-            <p>Aspiramos a ser reconocidos por nuestro compromiso con la calidad, la innovación y la apertura de espacios para nuevos talentos, contribuyendo al crecimiento y la profesionalización del teatro musical en nuestra comunidad.</p>
-        </section>
-        <section id="main-images" class="main-images" data-aos="fade-left">
-            <h2>Producciones</h2>
-        </section>
-        
-        <section id="main-images" class="main-images">
-            <a href="tgwdlm.html">
-                <div class="image-container" id="tgwdlm" data-aos="fade-up">
-                    <img src="img/PromoTGWDLM.jpg" alt="El hombre al que no le gustaban los musicales" class="colored">
-                </div>
+          <div class="mt-8 flex items-center gap-4">
+            <a href="#paquetes" class="px-5 py-3 rounded-md shadow-md inline-flex items-center gap-3 bg-white border border-gray-200 hover:translate-y-[-2px] transition">
+              Ver paquetes
             </a>
-            
-        </section>
+            <a href="#portfolio" class="text-sm text-gray-600 hover:underline">Ver portfolio →</a>
+          </div>
 
-        <section id="contacto" data-aos="fade-right">
-            <h2>Contacto</h2>
-            <p>Puedes contactarnos a través de nuestro correo electrónico: <a href="mailto:ecosdeapolo@gmail.com">ecosdeapolo@gmail.com</a> </p>
-            <div class="social-icons">
-                A través de nuestro Instagram: <a href="https://www.instagram.com/ecos.de.apolo"><i class="fab fa-instagram"></i></a>
+          <div class="mt-10 flex items-center gap-4 text-sm text-gray-500">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">⚡</div>
+              <div>
+                <div class="font-medium">Performance</div>
+                <div class="text-xs">Optimización & Core Web Vitals</div>
+              </div>
             </div>
-            <p> </p>
-            <div class="social-icons">
-                O directo por Whatsapp: <a href="https://wa.me/+526442041328?text=Hola, te escribo desde tu pagina web!%0a%0a"><i class="fab fa-whatsapp"></i></a>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">🎨</div>
+              <div>
+                <div class="font-medium">Diseño UI</div>
+                <div class="text-xs">Interfaz accesible y moderna</div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
 
-    </main>
+        <div class="relative">
+          <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl floaty">
+            <!-- Mockup image area -->
+            <div class="h-full w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center text-white">
+              <div class="text-center px-6">
+                <pre class="text-left text-[12px] leading-5 opacity-80">&lt;header&gt;\n  &lt;nav&gt;…&lt;/nav&gt;\n&lt;/header&gt;\n&lt;main&gt;…&lt;/main&gt;</pre>
+              </div>
+            </div>
+          </div>
 
-    <footer>
-        <p>© 2024 Ecos de Apolo, Todos los derechos reservados</p>
+          <div class="absolute -bottom-6 left-6 w-40 p-3 rounded-xl glass shadow-lg border border-white/30">
+            <div class="text-xs text-gray-700">Proyecto destacado</div>
+            <div class="font-medium">Landing productora</div>
+            <div class="text-xs text-gray-500">React · Tailwind · SSR</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-14">
+      <div class="grid md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2">
+          <h2 class="text-2xl font-bold reveal">Sobre mí</h2>
+          <p class="mt-4 text-gray-600 reveal">Soy desarrollador web con enfoque en front-end, experiencia en interfaces usables y performance. Me apasiona resolver problemas mediante código limpio, accesible y escalable. Trabajo con equipos multidisciplinarios y también con proyectos desde cero.</p>
+
+          <ul class="mt-6 grid grid-cols-2 gap-3">
+            <li class="flex items-center gap-3 reveal">
+              <div class="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center">HTML</div>
+              <div>
+                <div class="text-sm font-medium">HTML5 & Semántica</div>
+                <div class="text-xs text-gray-500">SEO & accesibilidad</div>
+              </div>
+            </li>
+            <li class="flex items-center gap-3 reveal">
+              <div class="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center">CSS</div>
+              <div>
+                <div class="text-sm font-medium">CSS moderno</div>
+                <div class="text-xs text-gray-500">Tailwind, SASS, animaciones</div>
+              </div>
+            </li>
+            <li class="flex items-center gap-3 reveal">
+              <div class="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center">JS</div>
+              <div>
+                <div class="text-sm font-medium">JavaScript & TS</div>
+                <div class="text-xs text-gray-500">React, Vite, Next</div>
+              </div>
+            </li>
+            <li class="flex items-center gap-3 reveal">
+              <div class="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center">⚙️</div>
+              <div>
+                <div class="text-sm font-medium">Infra & Deploy</div>
+                <div class="text-xs text-gray-500">Netlify, Vercel, CI/CD</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex justify-center md:justify-end">
+          <div class="w-56 h-56 rounded-2xl overflow-hidden shadow-xl reveal">
+            <img src=img/img18.jpg alt="Foto profesional" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="paquetes" class="bg-white border-t py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center">
+          <h3 class="text-2xl font-bold reveal">Paquetes</h3>
+          <p class="mt-2 text-gray-600 reveal">Paquetes pensados para cubrir necesidades reales — precios orientativos. Si quieres algo a medida, contáctame.</p>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <article class="p-6 rounded-2xl shadow hover:shadow-lg transition reveal">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-semibold">Landing Rápida</h4>
+                <div class="text-xs text-gray-500">Ideal para validar producto</div>
+              </div>
+              <div class="text-sm font-bold text-gray-800">Desde $1250</div>
+            </div>
+            <ul class="mt-4 text-sm text-gray-600 space-y-2">
+              <li>Diseño responsivo</li>
+              <li>1–3 secciones</li>
+              <li>SEO básico y performance</li>
+            </ul>
+            <div class="mt-6">
+              <a href="#contact" class="inline-block px-4 py-2 rounded-md border border-gray-200">Contactar</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="p-6 rounded-2xl shadow-lg border-2 border-emerald-200 bg-gradient-to-br from-white to-emerald-50 reveal">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-semibold">Web Corporativa</h4>
+                <div class="text-xs text-gray-500">Presencia profesional completa</div>
+              </div>
+              <div class="text-sm font-bold text-gray-800">Desde $2,500</div>
+            </div>
+            <ul class="mt-4 text-sm text-gray-600 space-y-2">
+              <li>Diseño a medida (5–10 páginas)</li>
+              <li>CMS opcional (Headless/WordPress)</li>
+              <li>Optimización de performance</li>
+            </ul>
+            <div class="mt-6">
+              <a href="#contact" class="inline-block px-4 py-2 rounded-md bg-emerald-500 text-white shadow">Contactar</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="p-6 rounded-2xl shadow hover:shadow-lg transition reveal">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-semibold">E‑commerce</h4>
+                <div class="text-xs text-gray-500">Tienda optimizada y segura</div>
+              </div>
+              <div class="text-sm font-bold text-gray-800">Desde $3,200</div>
+            </div>
+            <ul class="mt-4 text-sm text-gray-600 space-y-2">
+              <li>Catálogo y pagos integrados</li>
+              <li>Panel de administración</li>
+              <li>Escalabilidad y performance</li>
+            </ul>
+            <div class="mt-6">
+              <a href="#contact" class="inline-block px-4 py-2 rounded-md border border-gray-200">Contactar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="max-w-6xl mx-auto px-6 py-14">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold reveal">Portfolio</h3>
+        <p class="mt-2 text-gray-600 reveal">Algunos proyectos recientes — mockups listos para revisar en detalle.</p>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <a class="group block rounded-2xl overflow-hidden shadow-lg reveal" href="#">
+          <div class="h-44 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-end p-4">
+            <div class="text-white">
+              <div class="text-sm opacity-90">Landing</div>
+              <div class="font-medium">Product Launch</div>
+            </div>
+          </div>
+          <div class="p-4 bg-white">
+            <div class="text-xs text-gray-500">React · Tailwind · Vercel</div>
+            <div class="mt-2 text-sm text-gray-700 group-hover:text-emerald-600">Interfaz optimizada para conversiones.</div>
+          </div>
+        </a>
+
+        <a class="group block rounded-2xl overflow-hidden shadow-lg reveal" href="#">
+          <div class="h-44 bg-gradient-to-br from-amber-600 via-amber-500 to-amber-400 flex items-end p-4">
+            <div class="text-white">
+              <div class="text-sm opacity-90">Tienda</div>
+              <div class="font-medium">Boutique Online</div>
+            </div>
+          </div>
+          <div class="p-4 bg-white">
+            <div class="text-xs text-gray-500">Next.js · Stripe · Headless CMS</div>
+            <div class="mt-2 text-sm text-gray-700 group-hover:text-emerald-600">Checkout optimizado y velocidad.</div>
+          </div>
+        </a>
+
+        <a class="group block rounded-2xl overflow-hidden shadow-lg reveal" href="#">
+          <div class="h-44 bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500 flex items-end p-4">
+            <div class="text-white">
+              <div class="text-sm opacity-90">Portal</div>
+              <div class="font-medium">Intranet Corporativa</div>
+            </div>
+          </div>
+          <div class="p-4 bg-white">
+            <div class="text-xs text-gray-500">React · Typescript · Auth</div>
+            <div class="mt-2 text-sm text-gray-700 group-hover:text-emerald-600">UX claro y control de accesos.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-emerald-50 border-t py-14">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl font-bold reveal">¿Hablamos?</h3>
+            <p class="mt-3 text-gray-700 reveal">Si estás interesado en trabajar juntos, cuéntame tu proyecto. Respondo rápido y con propuestas claras.</p>
+
+            <div class="mt-6 space-y-3">
+              <a href="mailto:gmzluiis@gmail.com" class="block">✉️ gmzluiis@gmail.com</a>
+              <a href="https://wa.me/526442041328" target="_blank" rel="noopener" class="block">📱 WhatsApp</a>
+              <div class="text-sm text-gray-600">O envíame un brief y te paso un estimado personalizado.</div>
+            </div>
+          </div>
+
+          <form class="bg-white p-6 rounded-2xl shadow reveal" onsubmit="event.preventDefault(); alert('Gracias — te contactaré pronto (mock).')">
+            <div class="grid gap-3">
+              <input required class="border border-gray-200 rounded-md px-3 py-2" placeholder="Nombre" />
+              <input required type="email" class="border border-gray-200 rounded-md px-3 py-2" placeholder="Correo" />
+              <textarea required class="border border-gray-200 rounded-md px-3 py-2 h-24" placeholder="Cuéntame brevemente el proyecto"></textarea>
+              <button class="px-4 py-2 rounded-md bg-emerald-600 text-white">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white mt-10 border-t">
+      <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+        <div>© <span id="year"></span> Tu Nombre. Todos los derechos reservados.</div>
+        <div class="flex gap-4 mt-3 md:mt-0">
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
     </footer>
-    <script src="scripts.js"></script>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple typewriter rotator
+    (function(){
+      const words = ['impactan', 'convierten', 'funcionan', 'venden'];
+      let idx=0;
+      const el = document.querySelector('.typewriter .words');
+      function tick(){
+        el.textContent = words[idx++ % words.length];
+      }
+      tick();
+      setInterval(tick, 2200);
+    })();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+    }, {threshold: 0.12});
+    reveals.forEach(r=>io.observe(r));
+
+    // Mobile menu (simple)
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn.addEventListener('click', ()=>{
+      const nav = document.createElement('div');
+      nav.innerHTML = `<div class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-start justify-end">
+        <div class="w-64 bg-white h-full p-6">
+          <button id=\"closeMenu\" class=\"mb-6\">Cerrar ✕</button>
+          <nav class=\"flex flex-col gap-4\">
+            <a href=\"#about\">Sobre mí</a>
+            <a href=\"#paquetes\">Paquetes</a>
+            <a href=\"#portfolio\">Portfolio</a>
+            <a href=\"#contact\">Contacto</a>
+          </nav>
+        </div>
+      </div>`;
+      document.body.appendChild(nav);
+      document.getElementById('closeMenu').addEventListener('click', ()=>nav.remove());
+    });
+  </script>
 </body>
 </html>
