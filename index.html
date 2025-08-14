@@ -287,12 +287,12 @@
             </div>
           </div>
 
-          <form class="bg-white p-6 rounded-2xl shadow reveal" onsubmit="sendToWhatsapp(); alert('Gracias — te contactaré pronto!')">
+          <form class="bg-white p-6 rounded-2xl shadow reveal" onsubmit="event.preventDefault(); alert('Gracias — te contactaré pronto!')">
             <div class="grid gap-3">
               <input required id="nombre" class="border border-gray-200 rounded-md px-3 py-2" placeholder="Nombre" />
               <input required id="correo" type="email" class="border border-gray-200 rounded-md px-3 py-2" placeholder="Tu correo" />
               <textarea required id="detalles" class="border border-gray-200 rounded-md px-3 py-2 h-24" placeholder="Cuéntame brevemente el proyecto"></textarea>
-              <button class="px-4 py-2 rounded-md bg-blue-600 text-white">Enviar</button>
+              <button class="px-4 py-2 rounded-md bg-blue-600 text-white" onclick="sendToWhatsapp()">Enviar</button>
             </div>
           </form>
         </div>
