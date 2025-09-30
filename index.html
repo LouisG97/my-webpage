@@ -50,65 +50,88 @@
 
   <main class="pt-24">
     <!-- HERO -->
-    <section class="relative overflow-hidden">
-      <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-sm uppercase text-gray-500 tracking-wider mb-3">Desarrollador • Front-end • Experiencias</p>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-            Construyo <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-400">experiencias web</span>
-            <span class="typewriter block mt-3 text-xl font-medium text-gray-600">que <span class="words">impactan</span></span>
-          </h1>
-          <p class="mt-6 text-gray-600 max-w-xl">Diseño interfaces limpias, desarrollo front-ends rápidos y creo productos escalables. Trabajo con clientes directos para llevar ideas desde el concepto hasta producción.</p>
+  <section class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <!-- Columna izquierda -->
+      <div>
+        <p class="text-sm uppercase text-gray-500 tracking-wider mb-3">Desarrollador • Front-end • Experiencias</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Construyo <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-400">experiencias web</span>
+          <span class="typewriter block mt-3 text-xl font-medium text-gray-600">que <span class="words">impactan</span></span>
+        </h1>
+        <p class="mt-6 text-gray-600 max-w-xl">Diseño interfaces limpias, desarrollo front-ends rápidos y creo productos escalables. Trabajo con clientes directos para llevar ideas desde el concepto hasta producción.</p>
 
-          <div class="mt-8 flex items-center gap-4">
-            <a href="#paquetes" class="px-5 py-3 rounded-md shadow-md inline-flex items-center gap-3 bg-white border border-gray-200 hover:translate-y-[-2px] transition">
-              Ver paquetes
-            </a>
-            <a href="#portfolio" class="text-sm text-gray-600 hover:underline">Ver portfolio →</a>
-          </div>
-
-          <div class="mt-10 flex items-center gap-4 text-sm text-gray-500">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">⚡</div>
-              <div>
-                <div class="font-medium">Performance</div>
-                <div class="text-xs">Optimización & Core Web Vitals</div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">🎨</div>
-              <div>
-                <div class="font-medium">Diseño UI</div>
-                <div class="text-xs">Interfaz accesible y moderna</div>
-              </div>
-            </div>
-          </div>
+        <div class="mt-8 flex items-center gap-4">
+          <a href="#paquetes" class="px-5 py-3 rounded-md shadow-md inline-flex items-center gap-3 bg-white border border-gray-200 hover:-translate-y-0.5 transition">
+            Ver paquetes
+          </a>
+          <a href="#portfolio" class="text-sm text-gray-600 hover:underline">Ver portfolio →</a>
         </div>
 
-        <div class="relative">
-            <div class="w-[80%] mx-auto aspect-[4/4] rounded-2xl overflow-hidden shadow-2xl floaty">
-                <!-- Mockup image area -->
-                <div class="h-full w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex text-white">
-                <iframe 
-                    src="https://www.jenyan.com.mx" 
-                    title="Preview de Jenyan.com.mx" 
-                    class="w-full h-full -origin-top-left pointer-events-none"
-                    
-                ></iframe>
+        <div class="mt-10 flex items-center gap-4 text-sm text-gray-500">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">⚡</div>
+            <div>
+              <div class="font-medium">Performance</div>
+              <div class="text-xs">Optimización & Core Web Vitals</div>
             </div>
-        </div>
-
-          <div class="absolute -bottom-6 left-6 w-40 p-3 rounded-xl glass shadow-lg border border-white/30">
-            <div class="text-xs text-gray-700">Proyecto destacado</div>
-            <div class="font-medium">Jenyan Fotografía</div>
-            <div class="text-xs text-gray-500">CSS · HTML5</div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">🎨</div>
+            <div>
+              <div class="font-medium">Diseño UI</div>
+              <div class="text-xs">Interfaz accesible y moderna</div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Columna derecha: wrapper que gobierna tarjeta + badge -->
+      <div class="relative">
+        <!-- Tarjeta (preview no interactivo) -->
+        <div class="w-[80%] mx-auto aspect-square rounded-2xl overflow-hidden shadow-2xl floaty relative">
+          <!-- Fondo -->
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
+
+          <!-- Iframe visible pero NO interactivo -->
+          <iframe
+            loading="lazy"
+            src="https://www.jenyan.com.mx"
+            title="Vista previa de jenyan.com.mx"
+            class="absolute inset-0 z-[1] w-full h-full pointer-events-none"
+          ></iframe>
+
+          <!-- Capa clicable (encima) -->
+          <a
+            href="https://www.jenyan.com.mx"
+            target="_blank"
+            rel="noopener"
+            aria-label="Abrir jenyan.com.mx en nueva pestaña"
+            class="absolute inset-0 z-10 block focus:outline-none focus:ring-4 focus:ring-white/40"
+          >
+            <span class="sr-only">Abrir jenyan.com.mx</span>
+            <span class="absolute right-3 top-3 rounded-full bg-white/10 text-white text-xs px-2 py-1 backdrop-blur ring-1 ring-white/20">
+              Ver sitio ↗
+            </span>
+          </a>
+        </div>
+
+        <!-- Badge posicionado contra el wrapper (no se corta ni se mueve) -->
+        <div
+          class="absolute -bottom-6 left-6 w-44 p-3 rounded-xl glass shadow-lg border border-white/30 z-20 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div class="text-xs text-gray-700">Proyecto destacado</div>
+          <div class="font-medium">Jenyan Fotografía</div>
+          <div class="text-xs text-gray-500">CSS · HTML5</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
     <!-- ABOUT -->
-    <section id="about" class="max-w-6xl mx-auto px-6 py-14">
+    <section id="about" class="max-w-6xl mx-auto px-6 py-14 scroll-mt-24">
       <div class="grid md:grid-cols-3 gap-8 items-center">
         <div class="md:col-span-2">
           <h2 class="text-2xl font-bold reveal">Sobre mí</h2>
@@ -154,126 +177,185 @@
       </div>
     </section>
 
-    <!-- PACKAGES -->
-    <section id="paquetes" class="bg-white border-t py-14">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center">
-          <h3 class="text-2xl font-bold reveal">Paquetes</h3>
-          <p class="mt-2 text-gray-600 reveal">Paquetes pensados para cubrir necesidades reales — precios orientativos. Si quieres algo a medida, contáctame.</p>
-        </div>
-
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <article class="p-6 rounded-2xl shadow hover:shadow-lg transition reveal">
-            <div class="flex items-center justify-between">
-              <div>
-                <h4 class="text-lg font-semibold">Landing Rápida</h4>
-                <div class="text-xs text-gray-500">Ideal para validar producto</div>
-              </div>
-              <div class="text-sm font-bold text-gray-800">Desde $1,250</div>
-            </div>
-            <ul class="mt-4 text-sm text-gray-600 space-y-2">
-              <li>Diseño responsivo</li>
-              <li>1–3 secciones</li>
-              <li>SEO básico y performance</li>
-            </ul>
-            <div class="mt-6">
-              <a href="#contact" class="inline-block px-4 py-2 rounded-md border border-gray-200">Contactar</a>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="p-6 rounded-2xl shadow-lg border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50 reveal">
-            <div class="flex items-center justify-between">
-              <div>
-                <h4 class="text-lg font-semibold">Web Corporativa</h4>
-                <div class="text-xs text-gray-500">Presencia profesional completa</div>
-              </div>
-              <div class="text-sm font-bold text-gray-800">Desde $2,500</div>
-            </div>
-            <ul class="mt-4 text-sm text-gray-600 space-y-2">
-              <li>Diseño a medida (5–10 páginas)</li>
-              <li>CMS opcional (Headless/WordPress)</li>
-              <li>Optimización de performance</li>
-            </ul>
-            <div class="mt-6">
-              <a href="#contact" class="inline-block px-4 py-2 rounded-md bg-blue-400 text-white shadow">Contactar</a>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="p-6 rounded-2xl shadow hover:shadow-lg transition reveal">
-            <div class="flex items-center justify-between">
-              <div>
-                <h4 class="text-lg font-semibold">E‑commerce</h4>
-                <div class="text-xs text-gray-500">Tienda optimizada y segura</div>
-              </div>
-              <div class="text-sm font-bold text-gray-800">Desde $3,200</div>
-            </div>
-            <ul class="mt-4 text-sm text-gray-600 space-y-2">
-              <li>Catálogo y pagos integrados</li>
-              <li>Panel de administración</li>
-              <li>Escalabilidad y performance</li>
-            </ul>
-            <div class="mt-6">
-              <a href="#contact" class="inline-block px-4 py-2 rounded-md border border-gray-200">Contactar</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="max-w-6xl mx-auto px-6 py-14">
+  <!-- PACKAGES -->
+  <section id="paquetes" class="bg-white border-t py-14 scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="text-center">
-        <h3 class="text-2xl font-bold reveal">Portfolio</h3>
-        <p class="mt-2 text-gray-600 reveal">Algunos proyectos recientes — mockups listos para revisar en detalle.</p>
+        <h3 class="text-2xl font-bold reveal">Paquetes</h3>
+        <p class="mt-2 text-gray-600 reveal">Paquetes pensados para cubrir necesidades reales</p>
+        <p class="mt-2 text-gray-600 reveal">Precios orientativos, si quieres algo a medida, contáctame</p>
       </div>
 
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <a class="group block rounded-2xl overflow-hidden shadow-lg reveal" href="#">
-          <div class="h-44 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-end p-4">
-            <div class="text-white">
-              <div class="text-sm opacity-90">Landing</div>
-              <div class="font-medium">Product Launch</div>
+        <!-- Card 1 -->
+        <article class="p-6 rounded-2xl shadow hover:shadow-lg transition reveal">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="text-lg font-semibold">Landing Rápida</h4>
+              <div class="text-xs text-gray-500">Ideal para validar producto</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400 line-through">Antes $4,500</div>
+              <div class="text-lg font-extrabold text-blue-500">Ahora $3,500</div>
             </div>
           </div>
-          <div class="p-4 bg-white">
-            <div class="text-xs text-gray-500">React · Tailwind · Vercel</div>
-            <div class="mt-2 text-sm text-gray-700 group-hover:text-blue-500">Interfaz optimizada para conversiones.</div>
+          <ul class="mt-4 text-sm text-gray-600 space-y-2">
+            <li>Diseño responsivo</li>
+            <li>1 sección - Landing page</li>
+            <li>SEO básico y performance</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="inline-block px-4 py-2 rounded-md border border-gray-200 hover:border-gray-300">Contactar</a>
           </div>
-        </a>
+        </article>
 
-        <a class="group block rounded-2xl overflow-hidden shadow-lg reveal" href="#">
-          <div class="h-44 bg-gradient-to-br from-amber-600 via-amber-500 to-amber-400 flex items-end p-4">
-            <div class="text-white">
-              <div class="text-sm opacity-90">Tienda</div>
-              <div class="font-medium">Boutique Online</div>
+        <!-- Card 2 (destacado) -->
+        <article class="p-6 rounded-2xl shadow-lg border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50 reveal">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="text-lg font-semibold">Web Corporativa</h4>
+              <div class="text-xs text-gray-500">Pagina profesional completa</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-500 line-through">Antes $6,000</div>
+              <div class="text-lg font-extrabold text-blue-500">Ahora $4,500</div>
             </div>
           </div>
-          <div class="p-4 bg-white">
-            <div class="text-xs text-gray-500">Next.js · Stripe · Headless CMS</div>
-            <div class="mt-2 text-sm text-gray-700 group-hover:text-blue-500">Checkout optimizado y velocidad.</div>
+          <ul class="mt-4 text-sm text-gray-700 space-y-2">
+            <li>Diseño responsivo</li>
+            <li>Diseño a medida (3–5 paginas/secciones)</li>
+            <li>Optimización de performance</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="inline-block px-4 py-2 rounded-md bg-blue-500 text-white shadow hover:bg-blue-600">Contactar</a>
           </div>
-        </a>
+        </article>
 
-        <a class="group block rounded-2xl overflow-hidden shadow-lg reveal" href="#">
-          <div class="h-44 bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500 flex items-end p-4">
-            <div class="text-white">
-              <div class="text-sm opacity-90">Portal</div>
-              <div class="font-medium">Intranet Corporativa</div>
+        <!-- Card 3 (renombrado) -->
+        <article class="p-6 rounded-2xl shadow hover:shadow-lg transition reveal">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="text-lg font-semibold">Web avanzada</h4>
+              <div class="text-xs text-gray-500">Cuentas, panel y/o integraciones</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400 line-through">Antes $8,500</div>
+              <div class="text-lg font-extrabold text-blue-500">Ahora $6,000</div>
             </div>
           </div>
-          <div class="p-4 bg-white">
-            <div class="text-xs text-gray-500">React · Typescript · Auth</div>
-            <div class="mt-2 text-sm text-gray-700 group-hover:text-blue-500">UX claro y control de accesos.</div>
+          <ul class="mt-4 text-sm text-gray-600 space-y-2">
+            <li>Autenticación básica y roles</li>
+            <li>Diseño a medida completo (5+ paginas/secciones)</li>
+            <li>Cambios grandes por hasta 2 años</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="inline-block px-4 py-2 rounded-md border border-gray-200 hover:border-gray-300">Contactar</a>
           </div>
-        </a>
+        </article>
       </div>
-    </section>
+
+      <!-- Nota opcional de moneda/IVA -->
+      <!-- <p class="mt-4 text-xs text-gray-500 text-center">Precios en MXN. Sujetos a cambios. IVA no incluido.</p> -->
+    </div>
+  </section>
+
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="max-w-6xl mx-auto px-6 py-14 scroll-mt-24">
+    <div class="text-center">
+      <h3 class="text-2xl font-bold reveal">Portfolio</h3>
+      <p class="mt-2 text-gray-600 reveal">Algunos proyectos recientes — listos para explorar.</p>
+    </div>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <!-- Mar Guardado -->
+      <article class="group relative rounded-2xl overflow-hidden shadow-lg reveal">
+        <!-- Preview -->
+        <div class="relative aspect-[16/10]">
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black"></div>
+          <iframe
+            loading="lazy"
+            src="https://www.marguardado.com/"
+            title="Vista previa de marguardado.com"
+            class="absolute inset-0 z-[1] w-full h-full pointer-events-none"
+          ></iframe>
+          <!-- mini badge -->
+          <span class="absolute right-3 top-3 z-10 rounded-full bg-white/10 text-white text-xs px-2 py-1 backdrop-blur ring-1 ring-white/20">
+            Ver sitio ↗
+          </span>
+        </div>
+        <!-- Meta -->
+        <div class="p-4 bg-white">
+          <div class="text-sm text-gray-800 font-medium">Mar Guardado</div>
+          <div class="text-xs text-gray-500">Sitio estático · Portfolio artístico</div>
+          <div class="mt-2 text-sm text-gray-700">Página personal para actriz/bailarina con galería y contacto.</div>
+        </div>
+        <!-- Overlay link (toda la card) -->
+        <a href="https://www.marguardado.com/" target="_blank" rel="noopener"
+          aria-label="Abrir marguardado.com en nueva pestaña"
+          class="absolute inset-0 z-20 focus:outline-none focus:ring-4 focus:ring-blue-200/60">
+          <span class="sr-only">Abrir marguardado.com</span>
+        </a>
+      </article>
+
+      <!-- FAC Mantenimiento -->
+      <article class="group relative rounded-2xl overflow-hidden shadow-lg reveal">
+        <div class="relative aspect-[16/10]">
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-700"></div>
+          <iframe
+            loading="lazy"
+            src="https://www.facmantenimiento.com.mx/"
+            title="Vista previa de facmantenimiento.com.mx"
+            class="absolute inset-0 z-[1] w-full h-full pointer-events-none"
+          ></iframe>
+          <span class="absolute right-3 top-3 z-10 rounded-full bg-white/10 text-white text-xs px-2 py-1 backdrop-blur ring-1 ring-white/20">
+            Ver sitio ↗
+          </span>
+        </div>
+        <div class="p-4 bg-white">
+          <div class="text-sm text-gray-800 font-medium">FAC Mantenimiento</div>
+          <div class="text-xs text-gray-500">One-page · Formulario a WhatsApp</div>
+          <div class="mt-2 text-sm text-gray-700">Servicios de mantenimiento con agenda directa por WhatsApp.</div>
+        </div>
+        <a href="https://www.facmantenimiento.com.mx/" target="_blank" rel="noopener"
+          aria-label="Abrir facmantenimiento.com.mx en nueva pestaña"
+          class="absolute inset-0 z-20 focus:outline-none focus:ring-4 focus:ring-blue-200/60">
+          <span class="sr-only">Abrir facmantenimiento.com.mx</span>
+        </a>
+      </article>
+
+      <!-- Ecos de Apolo -->
+      <article class="group relative rounded-2xl overflow-hidden shadow-lg reveal">
+        <div class="relative aspect-[16/10]">
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-indigo-900 via-indigo-800 to-slate-700"></div>
+          <iframe
+            loading="lazy"
+            src="https://ecosdeapolo.com/"
+            title="Vista previa de ecosdeapolo.com"
+            class="absolute inset-0 z-[1] w-full h-full pointer-events-none"
+          ></iframe>
+          <span class="absolute right-3 top-3 z-10 rounded-full bg-white/10 text-white text-xs px-2 py-1 backdrop-blur ring-1 ring-white/20">
+            Ver sitio ↗
+          </span>
+        </div>
+        <div class="p-4 bg-white">
+          <div class="text-sm text-gray-800 font-medium">Ecos de Apolo</div>
+          <div class="text-xs text-gray-500">One-page informativa</div>
+          <div class="mt-2 text-sm text-gray-700">Compañía de teatro musical: misión, visión y contacto.</div>
+        </div>
+        <a href="https://ecosdeapolo.com/" target="_blank" rel="noopener"
+          aria-label="Abrir ecosdeapolo.com en nueva pestaña"
+          class="absolute inset-0 z-20 focus:outline-none focus:ring-4 focus:ring-blue-200/60">
+          <span class="sr-only">Abrir ecosdeapolo.com</span>
+        </a>
+      </article>
+    </div>
+  </section>
+
+
 
     <!-- CONTACT -->
-    <section id="contact" class="bg-blue-50 border-t py-14">
+    <section id="contact" class="bg-blue-50 border-t py-14 scroll-mt-24">
       <div class="max-w-4xl mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-8 items-center">
           <div>
@@ -304,8 +386,8 @@
       <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
         <div>© <span id="year"></span> José Luis Gómez . Todos los derechos reservados.</div>
         <div class="flex gap-4 mt-3 md:mt-0">
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
+          <a href="https://www.linkedin.com/in/jos%C3%A9-luis-g%C3%B3mez-figueroa-9102a8205/">LinkedIn</a>
+          <a href="https://github.com/LouisG97">GitHub</a>
         </div>
       </div>
     </footer>
