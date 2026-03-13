@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Art Portfolio</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --panel: #18181b;
+      --panel-2: #27272a;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --line: #3f3f46;
+      --accent: #34d399;
+      --accent-2: #22c55e;
+      --white: #ffffff;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(9, 9, 11, 0.9);
+      border-bottom: 4px solid #27272a;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+
+    .site-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin: 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: #d4d4d8;
+      font-size: 14px;
+    }
+
+    .nav a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      padding: 56px 0 80px;
+    }
+
+    .pill {
+      display: inline-block;
+      border: 2px solid var(--accent);
+      color: #86efac;
+      background: rgba(52, 211, 153, 0.08);
+      padding: 8px 12px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 0.96;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0;
+      max-width: 820px;
+    }
+
+    .hero-copy,
+    .section-copy,
+    .card-copy {
+      color: #d4d4d8;
+      line-height: 1.8;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 18px;
+      border: 2px solid var(--white);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: #111827;
+    }
+
+    .btn-primary:hover {
+      background: #e5e7eb;
+    }
+
+    .btn-secondary {
+      border-color: #52525b;
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #18181b;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .feature {
+      border: 2px solid #27272a;
+      background: rgba(24, 24, 27, 0.8);
+      padding: 18px;
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .preview-shell {
+      position: relative;
+    }
+
+    .preview-window {
+      background: #18181b;
+      border: 4px solid #27272a;
+      border-radius: 32px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .window-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      display: block;
+    }
+
+    .dot-red { background: #f87171; }
+    .dot-yellow { background: #facc15; }
+    .dot-green { background: #4ade80; }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      background: #09090b;
+      border: 4px solid #000;
+      border-radius: 22px;
+      padding: 16px;
+    }
+
+    .mini-card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-top: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .floating-tag {
+      position: absolute;
+      left: -8px;
+      bottom: -12px;
+      border: 2px solid var(--accent);
+      background: #09090b;
+      color: #86efac;
+      padding: 10px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      margin-bottom: 26px;
+    }
+
+    .section-head h2 {
+      margin: 8px 0 0;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .gallery-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .search {
+      width: min(360px, 100%);
+      padding: 14px 16px;
+      border: 2px solid #27272a;
+      background: #18181b;
+      color: var(--white);
+      outline: none;
+    }
+
+    .search::placeholder {
+      color: #71717a;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 2px solid #27272a;
+      background: #18181b;
+      color: #d4d4d8;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background: var(--white);
+      color: #111827;
+      border-color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 2px solid #27272a;
+      background: #18181b;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #52525b;
+    }
+
+    .thumb,
+    .big-thumb,
+    .mini-thumb {
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .thumb {
+      height: 220px;
+    }
+
+    .big-thumb {
+      height: 340px;
+      border-radius: 22px;
+    }
+
+    .mini-thumb {
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      border: 2px solid #18181b;
+    }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .symbol {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      color: white;
+      text-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      border: 1px solid rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.32);
+      backdrop-filter: blur(4px);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .card-meta {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card-copy {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      border: 1px solid #52525b;
+      color: #d4d4d8;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+    }
+
+    .panel {
+      background: #18181b;
+      border: 2px solid #27272a;
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #d4d4d8;
+      line-height: 1.9;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 24px;
+      background: #18181b;
+      border: 2px solid #27272a;
+      border-radius: 30px;
+      padding: 30px;
+    }
+
+    .contact-box {
+      border: 4px solid #000;
+      border-radius: 24px;
+      background: #09090b;
+      padding: 22px;
+    }
+
+    .contact-item {
+      padding: 0 0 16px;
+      margin: 0 0 16px;
+      border-bottom: 1px solid #27272a;
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+
+    .contact-value {
+      margin: 0;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .status {
+      display: inline-block;
+      border: 2px solid var(--accent);
+      color: #86efac;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    footer {
+      border-top: 4px solid #27272a;
+      padding: 28px 16px 40px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 200;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(900px, 100%);
+      background: #18181b;
+      border: 4px solid #27272a;
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .close-btn {
+      border: 1px solid #52525b;
+      background: transparent;
+      color: #d4d4d8;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .close-btn:hover {
+      color: var(--white);
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .two-col,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid,
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner,
+      .gallery-toolbar {
+        align-items: flex-start;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .feature-grid,
+      .gallery-grid,
+      .services-grid,
+      .info-grid,
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        letter-spacing: 0.04em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <p class="eyebrow">Pixel Art Portfolio</p>
+        <h1 class="site-title">Your Name / Studio</h1>
+      </div>
+      <nav class="nav">
+        <a href="#work">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <div class="pill">Available for commissions and indie projects</div>
+        <h2 class="hero-title">Pixel art with personality, atmosphere, and cartridge-era soul.</h2>
+        <p class="hero-copy">
+          This is where your work lives: characters, environments, interfaces, and assets ready for games,
+          covers, or any project that needs more charm and fewer boring visuals.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">View gallery</a>
+          <a class="btn btn-secondary" href="#contact">Request a commission</a>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3 style="color:#86efac;">Palettes</h3>
+            <div class="card-copy">Limited, cohesive, and intentional.</div>
+          </div>
+          <div class="feature">
+            <h3 style="color:#67e8f9;">Game Ready</h3>
+            <div class="card-copy">Sprites, tilesets, UI, and props.</div>
+          </div>
+          <div class="feature">
+            <h3 style="color:#f0abfc;">Style</h3>
+            <div class="card-copy">Retro, clean, and full of mood.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-shell">
+        <div class="preview-window">
+          <div class="window-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <div class="preview-grid" id="previewGrid"></div>
+        </div>
+        <div class="floating-tag">Online portfolio</div>
+      </div>
+    </section>
+
+    <section id="work" class="container">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Gallery</h2>
+      </div>
+
+      <div class="gallery-toolbar">
+        <input id="searchInput" class="search" type="text" placeholder="Search by project, style, or category" />
+        <div class="filters" id="filters"></div>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <section id="about" class="container two-col">
+      <div class="panel">
+        <p class="eyebrow">About me</p>
+        <h2 style="margin:0; font-size:clamp(28px,4vw,44px); text-transform:uppercase; letter-spacing:0.14em;">The artist behind the pixels</h2>
+        <p class="section-copy" style="margin-top:18px;">
+          Replace this text with your real bio: who you are, what kind of style you work with, what kinds of projects you enjoy,
+          and why your work has that extra spark that makes someone say, “yep, I want to hire this person.”
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="panel">
+          <h3>Specialties</h3>
+          <ul>
+            <li>Sprites and animation sheets</li>
+            <li>Tilesets and environments</li>
+            <li>Game UI</li>
+            <li>Props, items, and icons</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Tools</h3>
+          <ul>
+            <li>Aseprite</li>
+            <li>Photoshop / Procreate</li>
+            <li>Game-ready exports</li>
+            <li>Asset organization</li>
+          </ul>
+        </div>
+
+        <div class="panel" style="grid-column:1 / -1;">
+          <h3>Great fit for</h3>
+          <p class="section-copy">
+            Indie games, covers, key art, promotional material, visual novels, RPGs, platformers,
+            and ambitious personal projects with brave dreams and emotionally questionable budgets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="container">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>What you can hire me for</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="panel">
+          <h3 style="font-size:18px; letter-spacing:0.1em;">Personal commissions</h3>
+          <p class="section-copy">Portraits, avatars, characters, or pixel illustrations for social media, streams, or personal projects.</p>
+        </div>
+        <div class="panel">
+          <h3 style="font-size:18px; letter-spacing:0.1em;">Game assets</h3>
+          <p class="section-copy">Sprites, props, tilesets, effects, and UI designed to work inside real development pipelines.</p>
+        </div>
+        <div class="panel">
+          <h3 style="font-size:18px; letter-spacing:0.1em;">Package-based work</h3>
+          <p class="section-copy">Complete sets for demos, pitch decks, vertical slices, or projects that are ready to look serious.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="contact-wrap">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 style="margin:0; font-size:clamp(28px,4vw,44px); text-transform:uppercase; letter-spacing:0.14em;">Let’s talk about your project</h2>
+          <p class="section-copy" style="margin-top:18px; max-width:700px;">
+            Replace these with your real links. Ideally, you’ll want a visible email, Instagram, maybe Behance or ArtStation,
+            and a WhatsApp button or contact form.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:youremail@example.com">Send email</a>
+            <a class="btn btn-secondary" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-item">
+            <p class="contact-label">Email</p>
+            <p class="contact-value">youremail@example.com</p>
+          </div>
+          <div class="contact-item">
+            <p class="contact-label">Instagram</p>
+            <p class="contact-value">@yourhandle</p>
+          </div>
+          <div class="contact-item">
+            <p class="contact-label">Response time</p>
+            <p class="contact-value">24 to 72 hours</p>
+          </div>
+          <div class="contact-item">
+            <p class="contact-label">Status</p>
+            <span class="status">Commissions open</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Your Name. Made with lots of pixels and probably coffee.
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <div class="modal-top">
+        <div>
+          <p class="eyebrow" id="modalCategory">Characters</p>
+          <h2 id="modalTitle" style="margin:0; font-size:32px; text-transform:uppercase; letter-spacing:0.12em;">Title</h2>
+        </div>
+        <button class="close-btn" id="closeModal">×</button>
+      </div>
+
+      <div class="big-thumb" id="modalThumb">
+        <div class="grid-overlay"></div>
+        <div class="symbol" id="modalSymbol">✦</div>
+      </div>
+
+      <p class="section-copy" id="modalDescription" style="margin-top:18px;"></p>
+      <div class="tags" id="modalTags"></div>
+    </div>
+  </div>
+
+  <script>
+    const artworks = [
+      {
+        id: 1,
+        title: "Forest Witch",
+        category: "Characters",
+        year: "2026",
+        description: "Character design focused on fantasy appeal and a strong silhouette for game readability.",
+        tags: ["Fantasy", "RPG", "Sprite"],
+        gradient: "linear-gradient(135deg, #34d399, #0f766e)",
+        symbol: "✦",
+      },
+      {
+        id: 2,
+        title: "Dungeon Entrance",
+        category: "Environments",
+        year: "2026",
+        description: "Top-down environment with a limited palette and a moody adventure atmosphere.",
+        tags: ["Top-down", "Dungeon", "Tileset"],
+        gradient: "linear-gradient(135deg, #94a3b8, #334155)",
+        symbol: "▦",
+      },
+      {
+        id: 3,
+        title: "Potion Shop UI",
+        category: "UI",
+        year: "2025",
+        description: "Pixel art interface for a shop menu with clear iconography and strong hierarchy.",
+        tags: ["UI", "Game UI", "Icons"],
+        gradient: "linear-gradient(135deg, #e879f9, #6d28d9)",
+        symbol: "⌘",
+      },
+      {
+        id: 4,
+        title: "Cyber Brawler",
+        category: "Characters",
+        year: "2025",
+        description: "Concept sprite with arcade energy and bold contrast.",
+        tags: ["Arcade", "Action", "Character"],
+        gradient: "linear-gradient(135deg, #22d3ee, #1d4ed8)",
+        symbol: "⚔",
+      },
+      {
+        id: 5,
+        title: "Moon Shrine",
+        category: "Environments",
+        year: "2025",
+        description: "Atmospheric environment with a centered composition and fast visual readability.",
+        tags: ["Shrine", "Adventure", "Scenery"],
+        gradient: "linear-gradient(135deg, #fde68a, #ea580c)",
+        symbol: "◈",
+      },
+      {
+        id: 6,
+        title: "Monster Drops",
+        category: "Items",
+        year: "2024",
+        description: "Item and loot set designed for clarity at small sizes.",
+        tags: ["Items", "Icons", "Loot"],
+        gradient: "linear-gradient(135deg, #fb7185, #b91c1c)",
+        symbol: "⬢",
+      },
+    ];
+
+    const categories = ["All", "Characters", "Environments", "UI", "Items"];
+
+    const galleryGrid = document.getElementById("galleryGrid");
+    const previewGrid = document.getElementById("previewGrid");
+    const filters = document.getElementById("filters");
+    const searchInput = document.getElementById("searchInput");
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalTags = document.getElementById("modalTags");
+    const modalThumb = document.getElementById("modalThumb");
+    const modalSymbol = document.getElementById("modalSymbol");
+
+    let activeCategory = "All";
+    let search = "";
+
+    function createThumb(item, extraClass = "thumb") {
+      return `
+        <div class="${extraClass}" style="background:${item.gradient}">
+          <div class="grid-overlay"></div>
+          <div class="symbol">${item.symbol}</div>
+          <div class="thumb-label">${item.title}</div>
+        </div>
+      `;
+    }
+
+    function renderPreview() {
+      previewGrid.innerHTML = artworks
+        .slice(0, 6)
+        .map(
+          (item) => `
+            <div>
+              ${createThumb(item, "mini-thumb")}
+              <div class="mini-card-label">${item.title}</div>
+            </div>
+          `
+        )
+        .join("");
+    }
+
+    function renderFilters() {
+      filters.innerHTML = categories
+        .map(
+          (category) => `
+            <button class="filter-btn ${category === activeCategory ? "active" : ""}" data-category="${category}">
+              ${category}
+            </button>
+          `
+        )
+        .join("");
+
+      document.querySelectorAll(".filter-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeCategory = button.dataset.category;
+          renderFilters();
+          renderGallery();
+        });
+      });
+    }
+
+    function getFilteredArtworks() {
+      return artworks.filter((item) => {
+        const matchesCategory = activeCategory === "All" || item.category === activeCategory;
+        const haystack = `${item.title} ${item.description} ${item.tags.join(" ")} ${item.category}`.toLowerCase();
+        const matchesSearch = haystack.includes(search.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+    }
+
+    function renderGallery() {
+      const filtered = getFilteredArtworks();
+
+      if (!filtered.length) {
+        galleryGrid.innerHTML = `
+          <div class="panel" style="grid-column:1 / -1;">
+            <h3>No results</h3>
+            <p class="section-copy">Try another search or switch the selected category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      galleryGrid.innerHTML = filtered
+        .map(
+          (item) => `
+            <article class="card" data-id="${item.id}">
+              ${createThumb(item)}
+              <div class="card-body">
+                <div class="card-top">
+                  <div>
+                    <h3 class="card-title">${item.title}</h3>
+                    <p class="card-meta">${item.category} • ${item.year}</p>
+                  </div>
+                  <div style="color:#71717a; font-size:18px;">↗</div>
+                </div>
+                <p class="card-copy">${item.description}</p>
+                <div class="tags">
+                  ${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+                </div>
+              </div>
+            </article>
+          `
+        )
+        .join("");
+
+      document.querySelectorAll(".card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const id = Number(card.dataset.id);
+          const item = artworks.find((art) => art.id === id);
+          openModal(item);
+        });
+      });
+    }
+
+    function openModal(item) {
+      modalCategory.textContent = item.category;
+      modalTitle.textContent = item.title;
+      modalDescription.textContent = item.description;
+      modalSymbol.textContent = item.symbol;
+      modalThumb.style.background = item.gradient;
+      modalTags.innerHTML = item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function hideModal() {
+      modal.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      search = e.target.value;
+      renderGallery();
+    });
+
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) hideModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") hideModal();
+    });
+
+    renderPreview();
+    renderFilters();
+    renderGallery();
+  </script>
+</body>
+</html>
